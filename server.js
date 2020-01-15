@@ -85,9 +85,7 @@ todoRoutes.route('/update/:id').post(function (req, res) {
     });
 });
 
-if(process.env.NODE_ENV === 'production'){
-    
-}
+
 
 app.use('/todos', todoRoutes);
 //uses express routes
