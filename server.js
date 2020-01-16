@@ -21,8 +21,8 @@ app.all('*', function (req, res, next) {
 app.use(bodyParser.json());
 
 
-mongoose.connect('mongodb+srv://admin:MJC3vhvKXTaWEpUv@helioatlas-1vrvg.mongodb.net/todo', { useNewUrlParser: true })
-
+//mongoose.connect('mongodb+srv://admin:MJC3vhvKXTaWEpUv@helioatlas-1vrvg.mongodb.net/todos', { useNewUrlParser: true })
+mongoose.connect('mongodb+srv://admin:MJC3vhvKXTaWEpUv@helioatlas-1vrvg.mongodb.net/todos?retryWrites=true&w=majority', { useNewUrlParser: true })
 connection.once('open', function () {
     console.log("MongoDB database connection established successfully");
 })
