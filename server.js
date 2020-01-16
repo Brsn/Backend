@@ -21,7 +21,7 @@ app.all('*', function (req, res, next) {
 app.use(bodyParser.json());
 
 
-mongoose.connect('mongodb+srv://admin:MJC3vhvKXTaWEpUv@helioatlas-1vrvg.mongodb.net/test' , { useNewUrlParser: true })
+mongoose.connect('mongodb+srv://admin:MJC3vhvKXTaWEpUv@helioatlas-1vrvg.mongodb.net/todo', { useNewUrlParser: true })
 
 connection.once('open', function () {
     console.log("MongoDB database connection established successfully");
