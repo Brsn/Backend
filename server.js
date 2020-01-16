@@ -20,10 +20,8 @@ app.all('*', function (req, res, next) {
 
 app.use(bodyParser.json());
 
-//mongoose.connect('mongodb+srv+https://admin:MJC3vhvKXTaWEpUv@helioatlas-1vrvg.mongodb.net/test?retryWrites=true&w=majority', { useNewUrlParser: true });
-//connect mongoose with the local mongo server
-mongoose.connect('mongodb+srv://admin:MJC3vhvKXTaWEpUv@helioatlas-1vrvg.mongodb.net/test', { useNewUrlParser: true })
-const connection = mongoose.connection;
+mongoose.connect('mongodb+srv+https://admin:MJC3vhvKXTaWEpUv@helioatlas-1vrvg.mongodb.net/test?retryWrites=true&w=majority', { useNewUrlParser: true });
+
 
 connection.once('open', function () {
     console.log("MongoDB database connection established successfully");
