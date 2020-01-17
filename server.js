@@ -73,7 +73,7 @@ todoRoutes.route('/delete/:id').delete(function (req, res) {
     });
 });
 
-todoRoutes.route('/update/:id').patch(function (req, res) {
+todoRoutes.route('/update/:id').put(function (req, res) {
     Todo.findById(req.params.id, function (err, todo) {
         if (!todo)
             res.status(404).send('data is not found');
