@@ -10,13 +10,7 @@ let Todo = require('./todo.model');
 
 //middleware
 app.use(cors());
-app.all('*', function (req, res, next) {
-    var origin = req.get('origin');
-    res.header('Access-Control-Allow-Origin', origin);
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header('Access-Control-Allow-Headers', 'Content-Type');
-    next();
-});
+
 
 app.use(bodyParser.json());
 
@@ -45,7 +39,7 @@ todoRoutes.route('/:id').get(function (req, res) {
     });
 });
 
-todoRoutes.route('/add').post(function (req, res) {
+todoRoutes.route('/').post(function (req, res) {
     let todo = new Todo(req.body);
     todo.save()
         .then(todo => {
@@ -56,7 +50,7 @@ todoRoutes.route('/add').post(function (req, res) {
         });
 });
 
-todoRoutes.route('/delete/:id').delete(function (req, res) {
+todoRoutes.route('/:id').delete(function (req, res) {
     Todo.findById(req.params.id, function (err, todo) {
         if (!todo) {
             res.status(404).send('data is not found');
@@ -73,7 +67,7 @@ todoRoutes.route('/delete/:id').delete(function (req, res) {
     });
 });
 
-todoRoutes.route('/update/:id').put(function (req, res) {
+todoRoutes.route('/:id').put(function (req, res) {
     Todo.findById(req.params.id, function (err, todo) {
         if (!todo)
             res.status(404).send('data is not found');
@@ -100,7 +94,6 @@ app.use('/todos', todoRoutes);
 
 /* if (process.env.NODE_ENV === 'production') {
     app.use(express.static('build'));
-
     app.get('*', (req, res) => {
         res.sendFile(path.join(__dirname, 'build', 'index'));
     })
