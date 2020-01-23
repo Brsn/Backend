@@ -50,7 +50,7 @@ todoRoutes.route('/').post(function (req, res) {
         });
 });
 
-todoRoutes.route('/:id').delete(function (req, res) {
+todoRoutes.route('/todo/:id').delete(function (req, res) {
     Todo.findById(req.params.id, function (err, todo) {
         if (!todo) {
             res.status(404).send('data is not found');
@@ -67,7 +67,7 @@ todoRoutes.route('/:id').delete(function (req, res) {
     });
 });
 
-todoRoutes.route('/:id').put(function (req, res) {
+todoRoutes.route('/todo/:id').put(function (req, res) {
     Todo.findById(req.params.id, function (err, todo) {
         if (!todo)
             res.status(404).send('data is not found');
