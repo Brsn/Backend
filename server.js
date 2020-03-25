@@ -43,7 +43,7 @@ todoRoutes.route('/').post(function (req, res) {
     let todo = new Todo(req.body);
     todo.save()
         .then(todo => {
-            res.status(200).json({ 'todo': 'todo added successfully' });
+            res.status(200).json({ 'todo': todo });
         })
         .catch(err => {
             res.status(400).send('adding new todo failed');
@@ -58,7 +58,7 @@ todoRoutes.route('/:id').delete(function (req, res) {
         }
         else
             todo.delete().then(todo => {
-                res.json('Todo deleted: ' + req.params.id);
+                res.status(200).json({"Todo deleted: " + todo});
             })
                 .catch(err => {
                     res.status(400).send("Update not possible");
