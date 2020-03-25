@@ -58,7 +58,7 @@ todoRoutes.route('/:id').delete(function (req, res) {
         }
         else
             todo.delete().then(todo => {
-                res.json('Todo deleted: ' + req.params.id);
+                res.json('Todo deleted: ' : todo);
             })
                 .catch(err => {
                     res.status(400).send("Update not possible");
