@@ -43,7 +43,7 @@ todoRoutes.route('/').post(function (req, res) {
     let todo = new Todo(req.body);
     todo.save()
         .then(todo => {
-            res.status(200).json({ 'todo': req.params.id + req.body });
+            res.status(200).json({ 'todo': todo });
         })
         .catch(err => {
             res.status(400).send('adding new todo failed');
